@@ -21,8 +21,6 @@ inputBtn.addEventListener("click", function () {
   );
   validate();
 
-  console.log(userArr);
-
   if (flag) {
     userArr.push(user);
     saveToStorage("userArr", userArr); // luu vao storage
@@ -32,6 +30,7 @@ inputBtn.addEventListener("click", function () {
 
 // kiem tra cac truong input
 function validate() {
+  flag = true;
   if (
     inputFirstName.value === "" ||
     inputLastName.value === "" ||
