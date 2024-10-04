@@ -29,3 +29,20 @@ function parseUser(userData) {
 const currentUser = getFromStorage("currentUser")
   ? parseUser(getFromStorage("currentUser"))
   : null;
+
+const todoObjArr = getFromStorage("todoArr") || [];
+console.log(todoObjArr);
+
+const todoArr = todoObjArr.map((todo) => parseToDoList(todo));
+console.log(todoArr);
+
+function parseToDoList(todoData) {
+  const todo = new Task(todoData.task, todoData.owner, todoData.isDone);
+  return todo;
+}
+
+const newsSettingKey = "newsSetting";
+const newsSetting = getFromStorage(newsSettingKey) || {};
+console.log(newsSetting);
+
+let isSetting = false;
